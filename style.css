@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-  width: 70%;
+  width: 85%;
   max-width: 60rem;
   background-color: hsl(244, 38%, 16%);
   display: grid;
@@ -63,12 +63,16 @@ body {
 }
 
 .image--container {
-  background: linear-gradient(
+  /* another method to go about it */
+  /* background: linear-gradient(
       0deg,
       rgba(171, 77, 229, 0.55),
       rgba(163, 71, 221, 0.55)
     ),
-    url(./images/image-header-desktop.jpg);
+    url(./images/image-header-desktop.jpg); */
+  background-image: url(./images/image-header-desktop.jpg),
+    linear-gradient(hsl(277, 64%, 61%), hsl(277, 64%, 61%));
+  background-blend-mode: overlay;
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
@@ -77,11 +81,51 @@ body {
   height: 100%;
 }
 
-.attribution {
+footer {
   font-size: 1rem;
   text-align: center;
   color: hsl(0, 0%, 100%);
 }
-.attribution a {
-  color: hsla(0, 0%, 100%, 0.6);
+footer a {
+  color: hsl(277, 64%, 61%);
+}
+
+@media (max-width: 990px) {
+  .container {
+    width: 90%;
+    max-width: 22rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.8fr 1.2fr;
+    border-radius: 0.5rem;
+    margin: 4rem auto;
+  }
+  .image--container {
+    grid-row: 1 / 2;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  .text--container {
+    padding: 0 2.5rem;
+    text-align: center;
+  }
+  .text--container h2 {
+  }
+  .text--container p {
+    text-align: center;
+  }
+  .info--container {
+    flex-direction: column;
+  }
+  .info--container div {
+    margin-bottom: 1.5rem;
+  }
+  .info--container div h2 {
+    margin-bottom: 0.2rem;
+  }
+  footer {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
 }
